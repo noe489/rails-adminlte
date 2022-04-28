@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  constraints subdomain: /admin/ do
+    scope module: 'admin', as: 'admin' do
+      root to: 'home#index'
+    end
+  end
 
-  # Defines the root path route ("/")
-  # root "articles#index"
 end

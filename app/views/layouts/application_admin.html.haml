@@ -1,0 +1,21 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Admin | RailsAdminlte
+    %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag "application_admin", "data-turbo-track": "reload"
+    = javascript_importmap_tags "application_admin"
+
+  %body.hold-transition.sidebar-mini
+    .wrapper
+      = render "layouts/admin/header"
+      = render "layouts/admin/sidebar"
+      .content-wrapper
+        = render "admin/header"
+        .content
+          = yield
+      = render "admin/sidebar"
+      = render "admin/footer"
